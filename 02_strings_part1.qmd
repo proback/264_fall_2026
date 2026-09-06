@@ -9,10 +9,10 @@ editor:
     wrap: sentence
 ---
 
-You can download this .qmd file from [here](https://github.com/joeroith/264_spring_2026/blob/main/02_strings_part1.qmd).
+You can download this .qmd file from [here](https://github.com/proback/264_fall_2026/blob/main/02_strings_part1.qmd).
 Just hit the Download Raw File button.
 
-You can also see a video walkthrough of the first half of this worksheet [here](https://stolaf.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=dcdf1e3a-1f38-4686-87d6-b3ec00fca599)
+You can also see a video walkthrough of the first half of this worksheet [here](https://stolaf.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=37f8aa60-ca36-4916-83a7-af410143c055)
 
 This uses parts of R4DS Ch 14: Strings and Ch 15: Regular Expressions (both the first and second editions).
 
@@ -24,7 +24,7 @@ This dataset comes from the Tidy Tuesday community, [more details can be found h
 
 library(tidyverse)
 #spotify <- read_csv("Data/spotify.csv") 
-spotify <- read_csv("https://joeroith.github.io/264_spring_2026/Data/spotify.csv")
+spotify <- read_csv("https://proback.github.io/264_fall_2026/Data/spotify.csv")
 
 spot_smaller <- spotify |>
   select(

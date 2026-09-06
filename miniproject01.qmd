@@ -1,11 +1,13 @@
 ---
 title: "Mini-Project 1: Text Analysis"
-subtitle: "Due Friday, March 6 at 11pm"
+subtitle: "Due Friday, October 9 at 11pm"
 format:
   html: default
 editor_options: 
   chunk_output_type: console
 ---
+
+# Still under construction...
 
 ## Overview
 
@@ -23,7 +25,7 @@ Your analysis must contain the following elements:
 
 Be sure to highlight the elements above so that they are easy for me to spot!  
 
-You will hand in this project by pushing your work (qmd file, data set(s), and rendered pdf) to GitHub and providing me with a link submitted on Moodle.  If you have a private repository, you might have to add me (joeroith) as a collaborator.
+You will hand in this project by pushing your work (qmd file, data set(s), and rendered pdf) to GitHub and providing me with a link submitted on Moodle.  If you have a private repository, you might have to add me (proback) as a collaborator.
 
 
 ## Evaluation Rubric
@@ -33,7 +35,7 @@ Available [here](https://drive.google.com/file/d/1QhoyZSA0wm_WnwY1DEDOfCtWXhTaTS
 
 ## Timeline
 
-Mini-Project 1 must be submitted on Moodle by **<span style="color:red">11:00 PM on FRIDAY Mar 6</span>**.   
+Mini-Project 1 must be submitted on Moodle by **<span style="color:red">11:00 PM on FRIDAY Oct 9</span>**.   
 
 You should have the following in your GitHub repo:
 
@@ -61,9 +63,9 @@ library(tidyverse)
 #| message: false
 
 #barack <- read_csv("Data/tweets_potus.csv") 
-barack <- read_csv("https://joeroith.github.io/264_spring_2026/Data/tweets_potus.csv")
+barack <- read_csv("https://proback.github.io/264_fall_2026/Data/tweets_potus.csv")
 #michelle <- read_csv("Data/tweets_flotus.csv") 
-michelle <- read_csv("https://joeroith.github.io/264_spring_2026/Data/tweets_flotus.csv")
+michelle <- read_csv("https://proback.github.io/264_fall_2026/Data/tweets_flotus.csv")
 
 tweets <- bind_rows(barack |> 
                       mutate(person = "Barack"),

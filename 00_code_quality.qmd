@@ -6,7 +6,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-You can download this .qmd file from [here](https://github.com/joeroith/264_spring_2026/blob/main/00_code_quality.qmd).  Just hit the Download Raw File button.
+You can download this .qmd file from [here](https://github.com/proback/264_fall_2026/blob/main/00_code_quality.qmd).  Just hit the Download Raw File button.
 
 
 ## Code style
@@ -18,7 +18,7 @@ Based on those resources, can you improve this poorly styled code chunk using th
 ```{r}
 library(tidyverse)
 
-VACCINE.DATA <- read_csv("https://joeroith.github.io/264_spring_2026/Data/vaccinations_2021.csv")
+VACCINE.DATA <- read_csv("https://proback.github.io/264_fall_2026/Data/vaccinations_2021.csv")
 
 VACCINE.DATA |> filter(state %in% c("Minnesota","Iowa","Wisconsin","North Dakota","South Dakota")) |>
   mutate(state_ordered=fct_reorder2(state,perc_Biden,perc_complete_vac),prop_Biden=perc_Biden/100,prop_complete_vac=perc_complete_vac/100) |>

@@ -5,7 +5,6 @@ project:
     - "*.qmd"
     - "!DS2_preview_work/"
     - "!SQLcode/"
-    - "!spring2024/"
     - "!quarto_presentations/"
     - "!AERapp/"
     - "!Ames_example/"
@@ -23,7 +22,7 @@ website:
     left:
       - file: index.qmd
         text: "Home"
-      - file: syllabus_s26.qmd
+      - file: syllabus_f26.qmd
         text: "Syllabus"
       - sidebar:tech_notes
       - sidebar:activities
@@ -46,30 +45,15 @@ website:
         - 01_review164.qmd
         - 02_strings_part1.qmd
         - 03_strings_part2.qmd
-        - 04_strings_part3.qmd
-        - 05_text_analysis.qmd
-        - 06_data_types.qmd
-        - 07_functions.qmd
-        - 08_iteration.qmd
-        - 09_table_scraping.qmd
-        - 10_web_scraping.qmd
-        - 11_apis.qmd
-        - 12_maps.qmd
-        - 13_first_shiny_instructions.qmd
-        - 15_SQL_exercises.qmd
-        
+
     - id: projects
       title: "Projects"
       contents:
         - miniproject01.qmd
-        - miniproject2.qmd
-        - miniproject03.qmd
-        - finalproject.qmd
-
 
   page-footer:
     left: |
-      &copy; Joe Roith, 2026<br>
+      &copy; Paul Roback, 2026<br>
       All content licensed under ![](https://static.thenounproject.com/png/70967-200.png){height=20px} ([CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/))
     right: |
       Site built with [Quarto](https://quarto.org/)
