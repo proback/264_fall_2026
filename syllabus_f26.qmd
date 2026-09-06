@@ -1,0 +1,212 @@
+---
+title: "SDS 264: Data Science 2"
+subtitle: "Fall 2026 Syllabus"
+format:
+  html: default
+editor_options: 
+  chunk_output_type: console
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+#### **Course Information:**
+
+**Professor:** Paul Roback
+
+**Office:** 504 Regents Hall of Mathematical Sciences
+
+**Telephone:** 786-3681
+
+**Email:** [roback\@stolaf.edu](mailto:roback@stolaf.edu)
+
+**Drop-in Office Hours:**
+
+-   Mondays: 12:00-1:00
+
+-   Tuesdays: 2:00-3:00
+
+-   Wednesdays: 9:00-10:00
+
+-   Thursdays: 1:00-2:00
+
+-   Fridays: 2:00-3:00
+
+
+Additional appointments outside of these times may be made by emailing me or just dropping by my office (if my door is open just come on in!).
+
+**Class meetings:** Tu: 9:35-11am, Th 9:30-10:50am in RNS 160R
+
+**Class materials:** Available at our Moodle course site and in our
+RStudio server folder.
+
+**Textbooks:**
+
+-   [Modern Data Science with R
+    (3e)](https://mdsr-book.github.io/mdsr3e/) by Baumer, Kaplan, and
+    Horton
+
+-   [R for Data Science (2e)](https://r4ds.hadley.nz/) by Wickham,
+    Cetinkaya-Rundel, and Grolemund
+
+-   [Introduction to Data Science: Data Analysis and Prediction
+    Algorithms with R](https://rafalab.dfci.harvard.edu/dsbook-part-1/)
+    by Irizarry
+
+#### **Catalog course description:**
+
+After mastering the foundations of data science – especially data
+wrangling and visualization – in SDS164, data science students are ready to explore deeper fundamentals, impactful applications, and project workflow. Computational fundamentals may include iteration, functions, conditions, data types, SQL, regular expressions, version control, and simulation – all in the context of real data. New applications may include text as data, personal webpages, and web scraping to produce dynamic graphics. These fundamentals and applications will be presented with attention to data ethics, reproducible research, quality code, and sound workflow practices.
+
+#### **Extended course description:**
+
+Data science is a relatively new field that sits at the intersection between statistics and computer science. At its heart, data science is about gleaning information and making decisions from data. Knowledge of how to organize, visualize, and analyze data has never been a more important or marketable skill. Data is the currency of the modern world; huge declines in the costs of computing and computer storage mean that companies like Google and Amazon, as well as scientists and policy makers, have access to more data than the world has ever seen. Data science provides tools for gaining insight and understanding of problems in fields as diverse as economics, psychology, medicine, sociology, political science, etc.
+
+In this course, we will build on the fundamentals of data wrangling and data visualization that you gained in Data Science 1. There are still many fundamentals of literate programming that a modern data scientist should possess, and we will focus on many of those fundamentals in the presence of real data and real questions. Examples include writing functions (to perform common tasks efficiently), iteration (to effectively loop through similar instances), regular expressions (to clean and analyze text data), web scraping (to acquire analyzable data from websites and other sources), version control (to work well in group settings), and structured query language (SQL – to wrangle even larger data sets). But then we will take these newly mastered fundamentals and apply them to several areas of application, including mapping, webpage creation, and dynamic graphics and dashboards!
+
+This course, like Data Science 1, is not a substitute for an introduction to statistics, where you would study core ideas like study design, variability, and inference at a deeper level, nor is it a substitute for computer science, where you would study algorithms and systems at a deeper level. But hopefully this course will provide you with an even fuller set of tools for discovery and decision making with data.
+
+#### **Course objectives:**
+
+Students completing Data Science 2 will be able to:
+
+1.  Create meaningful choropleth maps
+
+2.  Use efficient and literate coding practices such as iteration,
+    functions, and regular expressions
+
+3.  Write simulations to investigate properties of data
+
+4.  Extract data from databases using structured query language
+
+5.  Scrape data from websites and other sources to create analyzable
+    data sets
+
+6.  Produce dynamic graphs that a user can interact with
+
+7.  Work in data science teams using version control and other sound
+    workflow practices
+
+8.  Tell stories with data while carefully considering ethical
+    implications
+
+Additionally, by the end of SDS 264, I hope that each of you has:
+
+1.  Developed a skill set and at least one tangible product that would impress a future interviewer
+
+2.  Taught me at least one new thing about data science
+
+#### **Features of this course**
+
+**Philosophy:** This course is centered on the idea that you will better understand and retain important ideas from data science if you practice using them, rather than by memorizing and regurgitating a set of facts. In order to actively construct knowledge in data science, you must:
+
+-   engage in the material and actively code. Just try stuff, even if it doesn’t work – you can’t break R!
+
+-   attend class, participate in class, and complete pre-class preparations.
+
+\
+**Grades:** Your course grade will be determined as follows:
+
+|                               |                |
+|-------------------------------|----------------|
+| Homework                      | 10%            |
+| R tip of the Day              | 6%             |
+| 3 Knowledge Quizzes in Moodle | 24% (8% each)  |
+| 3 Mini-Projects               | 36% (12% each) |
+| Final Project                 | 24%            |
+| **Total**                     | **100%**       |
+
+[Collegewide grading benchmarks](https://catalog.stolaf.edu/academic-regulations-procedures/grades/) can be found in our academic catalog.
+
+**Homework:** Regular practice with this material is critical! Homework assignments will primarily involve sets of questions that we begin together in class and which you finish on your own. Some important notes on homework assignments:
+
+-   Homework assignments may be done in collaboration with other students (this is highly encouraged). However, the final product must be *written by you*, in *your own words*. This applies to R code too – share ideas but write your own code. In no event can you copy or paraphrase answers from another student, a web site (including ChatGPT and other LLM tools), solutions manuals, or elsewhere (see Academic Integrity policy below).
+
+-   Homework will be assessed according to the following scale:
+
+    -   Check plus (Excellent in Moodle)= everything is completed, and the work is thorough and insightful (100)
+
+    -   Check (Adequate) = everything is completed, but at a basic level with a few errors (85)
+
+    -   Check minus (Inadequate) = work is partially complete and/or has many errors (70)
+
+    -   No credit (Missing) = nothing is submitted (so submit *something* !!) (0)
+
+-   Anything handed in after the due date and time [will]{.underline} be assessed a late penalty, unless cleared well in advance. Anything handed in once the key is posted (usually within 24 hours of the due date) can receive no more than a Check without prior approval. If you must turn in an assignment late, please send it directly to me, and if you have questions about how something was graded, please check with me. *In no circumstance should you contact our TA directly about late HWs or how a HW was graded.*
+
+-   Homework is completed using Quarto and you are required to upload knitted pdf files to Moodle. Be sure to allow time for rendering and check that the rendered pdf is complete. You must also save the .qmd file that generated the pdf in your Submit folder.
+
+**R Tip of the Day:** With so many cool new R packages and features coming online daily, it’s hard to keep up! Thus, each student will have a day in which they present the “R Tip of the Day”. You will give a 4-5 minute presentation about the R package or function, what it does, and provide a few examples of new R code in action with real data. You will also use cool presentation features in Quarto.
+
+**Knowledge Quizzes:** For a few topics, rather than a Mini-project, we will have a short quiz to check your understanding of key ideas and how they might be applied. Some of these Knowledge Quizzes will be conducted during class time, while others will be given in take-home format with restrictions on outside materials that can be used. The take-home quizzes may involve an oral component in which we can discuss your responses.
+
+**Projects:** Key products from this course will be organized into 3 mini-projects and 1 final project. The projects will allow you to use concepts from class in larger, more realistic applications where you will have some creative license in your topic choices. Some projects will be completed individually and others in small groups. No projects will be accepted after the final due date. Mini-project 2 will be conducted in pairs (assigned by me, with your input); it will consist of both an R product and an individual oral assessment in which you talk me through your group’s code. *No* projects will be accepted after the final due date.
+
+**Class Preparation and Participation:** You are expected to come to class having read the assigned readings and completed assigned work. You will be asked to work with classmates on in-class activities and actively engage in classroom assignments. Course grades may be adjusted based on attendance and the quality of class participation, so please let me know when you cannot attend class.
+
+If you are too ill to participate, please rest. Your first priority is to take care of yourself and be considerate of your classmates! If you’ll be away from class for more than one period (for illness or any other reason) or if you have difficulty completing an assignment on time, please let me know and we will work out a plan. Learning in community is a cherished opportunity that we must protect by taking care of each other.
+
+**Course materials:** Moodle will have key links and list pre-class assignments (readings, videos) and schedules and deadlines; homework and projects will be turned in via Moodle (but often after doing work in your own copy of RStudio). Our class webpage will contain instructions and code templates for daily in-class activities, as well as instructions for our projects. As a backup, I will occasionally place these materials in our class folder on the RStudio server (r.stolaf.edu); answer keys for in-class activities and homework assignments will also be found on the RStudio server.
+
+**Textbook:** All 3 textbooks are freely available on-line. You may certainly choose to purchase a hard copy, but we will focus on the online versions, which are often more up-to-date. You should follow along with the R commands on your own. In other words, read with your book in one hand and your computer in the other.
+
+**Computing:** The software package, R, will be used for this course. It is being used in more and more companies (e.g., Google, Mayo Clinic, General Mills) and more and more disciplines (e.g., biology, psychology, political science) for sophisticated data analysis and visualization. [R](https://www.r-project.org/) and [RStudio](https://posit.co/products/open-source/rstudio/?sid=1) are freely available to run on any platform; in fact, **I will ask everyone to download their own personal copies of R and RStudio and perform work there.** That way, we can use the latest and greatest package versions, integration with GitHub is easier, and you’ll be set up nicely for data science activities beyond St. Olaf.
+
+**Classroom behavior:** I am happy to take any questions during class, no matter how trivial they may seem. To facilitate an open learning environment, please respect each other. Raise your hand, listen when others are talking (including me), and avoid distracting or rude behavior (which includes habitually arriving late!). For instance, please turn off your cell phone ringers, and refrain from using your phone during class (no – you are not being sly, I can tell who’s constantly distracted by their phone)!\
+
++-------------------------------------------------------------------+
+| In short:                                                         |
+|                                                                   |
+| 1.  Be kind.                                                      |
+|                                                                   |
+| 2.  Treat each other with respect.                                |
+|                                                                   |
+| 3.  Consider how the perspective and experiences of others        |
+|     differs from your own.                                        |
+|                                                                   |
+| 4.  Assume everyone is doing the best they can right now.         |
+|                                                                   |
+| 5.  Tolerate (and expect) failure by yourself and others.         |
+|                                                                   |
+| We’ll be doing stuff that feels new, so mistakes will be made.    |
+| Eventually, success will happen too, and we will celebrate those  |
+| successes!                                                        |
++-------------------------------------------------------------------+
+
+**Available help:** You can all be successful in this class! If you are struggling or if you’re feeling good about things but have some
+questions, there are several resources:
+
+-   Come see me at my drop-in office hours, or make an appointment, or see if my door is open. Or send an email. Do not hesitate to reach out!
+
+-   Connect with your classmates – study groups, Moodle forums, etc.
+
+-   Visit the [Academic Success Center](https://wp.stolaf.edu/academic-success/). In the event that you request one-on-one tutoring, I will only approve such a request once you have taken full advantage of all resources available to you in and out of class – attending class, connecting with classmates for study groups, visiting TA help clinics, visiting my office hours, etc.\
+
+-   TA Help Clinics: Days and times TBD.  These sessions provide a place to drop by with questions on homework, projects, or class material. You can come with specific questions or just come to sit and work alone or with classmates, knowing that help is nearby if questions arise.
+
+
+#### **Other Notes:**
+
+**Inclusivity:** In keeping with St. Olaf College’s mission statement, this class strives to be an inclusive learning community, respecting those of differing backgrounds and beliefs. As a community, we aim to be respectful to all citizens in this class, regardless of race, ethnicity, religion, gender or sexual orientation.
+
+**Accommodations:** I am committed to supporting the learning of all students in my class. If you have already registered with Disability and Access (DAC) and have your letter of accommodations, please meet with me as soon as possible to discuss, plan, and implement your accommodations in the course. If you have or think you have a disability (learning, sensory, physical, chronic health, mental health or attentional), please contact [Disability and Access (DAC)](https://wp.stolaf.edu/dac/).
+
+**Mental Health:** I greatly value your experience in this class, and I will strive to facilitate a safe, caring, and productive learning environment. I recognize that you may experience a range of emotional, physical, and/or psychological issues, both in and out of the classroom, that may distract you from your learning. If you are experiencing such issues, please do not hesitate to come see me—I am here to listen. We can also discuss what further resources might be available to you.
+
+**Academic Integrity:** Plagiarism, the unacknowledged appropriation of another person’s words or ideas, is a serious academic offense. It is imperative that you hand in work that is your own, and that cites or gives credit to others whenever you draw from their work. Please see [St. Olaf’s statements on academic integrity and plagiarism](https://wp.stolaf.edu/thebook/integrity-2/). See also the description of [St. Olaf’s honor system](https://wp.stolaf.edu/honorcouncil/).
+
+St. Olaf's Academic Integrity Policy, including the Honor System, is an integral part of your academic experience. I consider any violation of this code to be extremely serious and will handle each case appropriately. Here are some guidelines for this class. They do not cover all eventualities so if you have any doubts about a course of action you can ask me.
+
+-   In *no event* can you copy or paraphrase answers or R code from another student, a web site, solutions manuals, or elsewhere.
+
+-   When you sign your pledge on an exam or project that you have “neither given nor received assistance, and seen no dishonest work” I treat your signature as your *solemn pledge* that all your actions have been honorable.
+
+-   Don't treat the honor code lightly; if you're in doubt about a possible violation, ask me.
+
+The **use of AI** (e.g., ChatGPT and other large language models) creates brand new challenges in academic integrity. On one hand, many jobs will want you to strategically use AI to enhance your productivity, and there are tasks it does extremely well (summarize information in a digestible manner, answer detailed coding questions much faster than you skimming multiple webpages for the right solution, etc.). On the other hand, it can confidently give you incorrect responses in addition to the ethical concerns with energy use, mining confidential data, etc. The bottom line for me is that in order for you to diagnose the inevitable coding and descriptive error produced by AI, you must put in the work to become expert enough in a particular error to recognize unhelpful responses, and that expertise only comes from putting in the work first without leaning on the AI crutch.
+
+Therefore, in this course, **I will specify assignments when AI is NOT allowed (to help you build expertise) and assignments when AI is allowed if properly attributed (to help you enhance your final products).** I may ask for your input in setting some of these policies. If restrictions are ever unclear, please ask!
+
+#### **Course Schedule**
+
+[This table](https://docs.google.com/spreadsheets/d/1kTV195US2WPwdouWuWQIwjCbGIA0i_JvH_KeOWYlvmU/edit?usp=sharing) provides an outline of the topics we’ll cover during specific weeks, along with the associated reading assignments in our textbooks. The spreadsheet also contains due dates for projects and projected data for Knowledge Quizzes; I will update due dates on the spreadsheet and in Moodle as they are finalized. All assessments will be turned in for grading via Moodle. It is your responsibility to check Moodle or the Course Schedule on a regular basis to get your assignments turned in on time.
