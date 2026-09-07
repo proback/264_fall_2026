@@ -3,7 +3,7 @@ title: "Tech Setup"
 sidebar: false
 ---
 
-Ideally before class on Thurs Feb 5, and definitely before class on Tues Feb 10, you should follow these instructions to set up the software that we'll be using throughout the semester. **Even if you've already downloaded both R and RStudio, you'll want to re-download to make sure that you have the most current versions.**
+Ideally before class on Thurs Sep 10, and definitely before class on Tues Sep 15, you should follow these instructions to set up the software that we'll be using throughout the semester. **Even if you've already downloaded both R and RStudio, you'll want to re-download to make sure that you have the most current versions.**
 
 <br>
 
@@ -12,10 +12,10 @@ Ideally before class on Thurs Feb 5, and definitely before class on Tues Feb 10,
 - **FIRST:** Download R [here](https://cran.rstudio.com/).
     - In the top section, you will see three links "Download R for ..."
     - Choose the link that corresponds to your computer.
-    - As of the start of this semester, the latest version of R is 4.5.2 (“[Not] Part in a Rumble”).
+    - As of the start of this semester, the latest version of R is 4.6.1 (“Happy Hop”).
 - **SECOND:** Download RStudio [here](https://posit.co/download/rstudio-desktop/#download).
     - Click the button under step 2 to install the version of RStudio recommended for your computer.
-    - As of the start of this semester, the latest version of RStudio is 2026.01.0 (Build 392).
+    - As of the start of this semester, the latest version of RStudio is 2026.08.2 (Build 200).
 - **THIRD:** Check that when you go to File > New Project > New Directory, you see "Quarto Website" as an option.
 
 <br>
@@ -27,16 +27,17 @@ Ideally before class on Thurs Feb 5, and definitely before class on Tues Feb 10,
 **Suggested:** Change the default file download location for your internet browser.
 
 - Generally by default, internet browsers automatically save all files to the `Downloads` folder on your computer. In that case, you have to grab files from `Downloads` and move them to a more appropriate storage spot. You can change this option so that your browser asks you where to save each file before downloading it.
-- This [page](https://www.online-tech-tips.com/computer-tips/change-default-download-folder-location-on-any-web-browser/) has information on how to do this for the most common browsers.
+- This [page](https://taxaroo.com/mastering-your-downloads-how-to-control-where-your-files-go/) has information on how to do this for the most common browsers.
 
 <br>
 
 **Required:** Install required **packages**.
 
 - An R **package** is an extra bit of functionality that will help us in our data analysis efforts in a variety of ways.  Many contributors create open source packages that can be added to base R to perform certain tasks in new and better ways.
-- For now, we'll just make sure the `tidyverse` package is installed.  Open RStudio and click on  the Packages tab in the bottom right pane.  Click the Install button and type "tidyverse" (without quotes) in the pop-up box.  Click the Install button at the bottom of the pop-up box. 
+- For now, we'll make sure the `tidyverse` package is installed.  Open RStudio and click on  the Packages tab in the bottom right pane.  Click the Install button and type "tidyverse" (without quotes) in the pop-up box.  Click the Install button at the bottom of the pop-up box. 
 - You will see a lot of text from status messages appearing in the Console as the packages are being installed. Wait until you see the `> ` again.
 - Enter the command `library(tidyverse)` in the Console and hit Enter.    
+- In addition, make sure the `tinytex` package is installed so that R can properly render/knit your qmd/Rmd documents into nice-looking pdf documents.  Follow the procedure above with the Install button under Packages, ending with `library(tinytex)` to make sure everything worked.
 - Quit RStudio. You're done setting up!
 
 <br> 
