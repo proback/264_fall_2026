@@ -15,10 +15,7 @@ You can download this .qmd file from [here](https://github.com/proback/264_fall_
 #| include: false
 
 library(tidyverse)
-#vaccine_data <- read_csv("https://proback.github.io/264_fall_2026/Data/vaccinations_2021.csv")
-# Approach 4 - remove once working
-vaccine_data <- read_csv("https://raw.githubusercontent.com/proback/264_fall_2026/refs/heads/main/Data/vaccinations_2021.csv")  #<4>
-
+vaccine_data <- read_csv("https://proback.github.io/264_fall_2026/Data/vaccinations_2021.csv")
 ```
 
 First, a little detour to describe several alternatives for reading in data:
@@ -30,13 +27,13 @@ If you navigate to [my Github account](https://github.com/proback), and find the
 #| eval: false
 
 # Approach 1
-#vaccine_data <- read_csv("Data/vaccinations_2021.csv")  #<1>
+vaccine_data <- read_csv("Data/vaccinations_2021.csv")  #<1>
 
 # Approach 2
-#vaccine_data <- read_csv("~/264_fall_2026/Data/vaccinations_2021.csv")  #<2>
+vaccine_data <- read_csv("~/264_fall_2026/Data/vaccinations_2021.csv")  #<2>
 
 # Approach 3
-#vaccine_data <- read_csv("https://proback.github.io/264_fall_2026/Data/vaccinations_2021.csv")  #<3>
+vaccine_data <- read_csv("https://proback.github.io/264_fall_2026/Data/vaccinations_2021.csv")  #<3>
 
 # Approach 4
 vaccine_data <- read_csv("https://raw.githubusercontent.com/proback/264_fall_2026/refs/heads/main/Data/vaccinations_2021.csv")  #<4>

@@ -41,7 +41,10 @@ website:
     - id: activities
       title: "Activities"
       contents:
+        - 00_code_quality.qmd
         - 01_review164.qmd
+        - 02_strings_part1.qmd
+        - 03_strings_part2.qmd
 
     - id: projects
       title: "Projects"

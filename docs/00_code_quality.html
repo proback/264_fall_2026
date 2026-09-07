@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Tip of the Day – SDS 264: Data Science 2</title>
+<title>Code quality – SDS 264: Data Science 2</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -75,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -154,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./rtipoftheday.html" aria-current="page"> 
+    <a class="nav-link" href="./rtipoftheday.html"> 
 <span class="menu-text">R Tip of the Day</span></a>
   </li>  
 </ul>
@@ -163,20 +198,68 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_code_quality.html">Code quality</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_code_quality.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Code quality</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_review164.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Review of Data Science 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_strings_part1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Strings: In-class Exercises (Part 1)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_strings_part2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Strings: In-class Exercises (Part 2)</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#code-style" id="toc-code-style" class="nav-link active" data-scroll-target="#code-style">Code style</a></li>
+  <li><a href="#code-comments" id="toc-code-comments" class="nav-link" data-scroll-target="#code-comments">Code comments</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R Tip of the Day</h1>
+<h1 class="title">Code quality</h1>
 </div>
 
 
@@ -193,51 +276,87 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><a href="https://docs.google.com/spreadsheets/d/1pTlt-iDFxTgM5D92wh_xwbg7bWxmgVnne6mCqE1rKIU/edit?usp=sharing">Signup Sheet</a></p>
-<p><a href="https://rconnect.stolaf.edu/content/68441b10-fe0d-409f-9807-0464b35a6120">How to create cool presentations using Quarto</a></p>
-<p><a href="https://github.com/proback/264_fall_2026/blob/main/quarto_presentations/revealjs-demo.qmd">Code for creating the presentation above</a></p>
-<p><a href="https://rconnect.stolaf.edu/content/3c3d7259-a2e4-42ed-a41b-028a9fc29d65">My example of an RTD presentation with revealjs in quarto</a></p>
-<p><a href="https://github.com/proback/264_fall_2026/blob/main/quarto_presentations/rtd_example.qmd">Code for my example</a></p>
-<p><strong>RTD rubric</strong>: TBD</p>
-<blockquote class="blockquote">
-<p>TIP: Create your presentation in a new project (separate from the one you created for class). You can run the presentation from your own machine OR you can publish it to the RStudio/Posit Connect server. To do this:</p>
-</blockquote>
+<p>You can download this .qmd file from <a href="https://github.com/proback/264_fall_2026/blob/main/00_code_quality.qmd">here</a>. Just hit the Download Raw File button.</p>
+<section id="code-style" class="level2">
+<h2 class="anchored" data-anchor-id="code-style">Code style</h2>
+<p>We are going to take a timeout at this point to focus a little on code quality. <a href="https://r4ds.hadley.nz/workflow-style">Chapter 4</a> in R4DS provides a nice introduction to code style and why it’s important. As they do in that chapter, we will follow the <a href="https://style.tidyverse.org/">tidyverse style guide</a> in this class.</p>
+<p>Based on those resources, can you improve this poorly styled code chunk using the data from our DS1 Review activity?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>VACCINE.DATA <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://proback.github.io/264_fall_2026/Data/vaccinations_2021.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 3053 Columns: 14
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (4): state, county, region, metro_status
+dbl (10): rural_urban_code, perc_complete_vac, tot_pop, votes_Trump, votes_B...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>VACCINE.DATA <span class="sc">|&gt;</span> <span class="fu">filter</span>(state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Minnesota"</span>,<span class="st">"Iowa"</span>,<span class="st">"Wisconsin"</span>,<span class="st">"North Dakota"</span>,<span class="st">"South Dakota"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">state_ordered=</span><span class="fu">fct_reorder2</span>(state,perc_Biden,perc_complete_vac),<span class="at">prop_Biden=</span>perc_Biden<span class="sc">/</span><span class="dv">100</span>,<span class="at">prop_complete_vac=</span>perc_complete_vac<span class="sc">/</span><span class="dv">100</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> prop_Biden, <span class="at">y =</span> prop_complete_vac, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color =</span> state_ordered)) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">color =</span> <span class="st">"State"</span>, <span class="at">x =</span> <span class="st">"Proportion of Biden votes"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> <span class="st">"Proportion completely vaccinated"</span>, <span class="at">title =</span> <span class="st">"The positive relationship between Biden votes and </span><span class="sc">\n</span><span class="st"> vaccination rates by county differs by state"</span>) <span class="sc">+</span>     </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>))  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="00_code_quality_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="code-comments" class="level2">
+<h2 class="anchored" data-anchor-id="code-comments">Code comments</h2>
+<p>Please read <a href="https://hdsr.mitpress.mit.edu/pub/8wsiqh1c/release/4">Fostering Better Coding Practices for Data Scientists</a>, which lays out a nice case for the importance of teaching good coding practices. In particular, their Top 10 List can help achieve the four Cs (correctness, clarity, containment, and consistency) that typify high-quality code:</p>
 <ol type="1">
-<li><p>Render your presentation.</p></li>
-<li><p>Click the ‘Publish’ icon in the upper right corner of the screen.</p></li>
-<li><p>Select Posit Connect as the server to publish to.</p></li>
-<li><p>Choose to publish the finished product only.</p></li>
-<li><p>At this point if you are doing it for the first time, you will be asked to connect to an account. Choose Posit Connect.</p></li>
-<li><p>Enter “https://rconnect.stolaf.edu” as the URL then click next.</p></li>
-<li><p>At this point you will be redirected to a webpage to sign in. Use your stolaf account to log in and follow the instructions to connect your RStudio to the server. Go back to your desktop RStudio and click ‘Connect Account’.</p></li>
-<li><p>Now you are ready to publish the document. Give it a good name and click ‘Publish’.</p></li>
-<li><p>After a minute or two, you will again be redirected to a browser where your document is now available. Edit the Share settings appropriately (Anyone - no login required is fine, but be aware that others will be able to see your work). Copy the Content URL to share.</p></li>
+<li>Choose good names.</li>
+<li>Follow a style guide consistently.</li>
+<li>Create documents using tools that support reproducible workflows.</li>
+<li>Select a coherent, minimal, yet powerful tool kit.</li>
+<li>Don’t Repeat Yourself (DRY).</li>
+<li>Take advantage of a functional programming style.</li>
+<li>Employ consistency checks.</li>
+<li>Learn how to debug and to ask for help.</li>
+<li>Get (version) control of the situation.</li>
+<li>Be multilingual.</li>
 </ol>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="images/Posit_connect.jpg" class="img-fluid"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="images/publish_finished.jpg" class="img-fluid"></p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="images/posit_connect2.jpg" class="img-fluid"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="images/rconnect_url.jpg" class="img-fluid"></p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="images/last_step.jpg" class="img-fluid"></p>
-</div>
-</div>
-</div>
+<p>Please also read the Stack Overflow blog on <a href="https://stackoverflow.blog/2021/12/23/best-practices-for-writing-code-comments/">Best Practices for Writing Code Comments</a> with their set of 9 rules:</p>
+<ul>
+<li>Rule 1: Comments should not duplicate the code.</li>
+<li>Rule 2: Good comments do not excuse unclear code.</li>
+<li>Rule 3: If you can’t write a clear comment, there may be a problem with the code.</li>
+<li>Rule 4: Comments should dispel confusion, not cause it.</li>
+<li>Rule 5: Explain unidiomatic code in comments.</li>
+<li>Rule 6: Provide links to the original source of copied code.</li>
+<li>Rule 7: Include links to external references where they will be most helpful.</li>
+<li>Rule 8: Add comments when fixing bugs.</li>
+<li>Rule 9: Use comments to mark incomplete implementations.</li>
+</ul>
+<p>In your projects and homework for this course, we will look for good style and good commenting to optimize your abilities as a collaborating data scientist!</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

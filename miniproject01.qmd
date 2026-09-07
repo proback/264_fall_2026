@@ -61,7 +61,6 @@ library(tidyverse)
 
 ```{r}
 #| message: false
-#| eval: false
 
 #barack <- read_csv("Data/tweets_potus.csv") 
 barack <- read_csv("https://proback.github.io/264_fall_2026/Data/tweets_potus.csv")
