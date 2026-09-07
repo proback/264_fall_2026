@@ -1,4 +1,4 @@
-# 264_spring_2026
-Course website for SDS 264 in Spring 2026
+# 264_fall_2026
+Course website for SDS 264 in Fall 2026
 
-https://joeroith.github.io/264_spring_2026/
+https://proback.github.io/264_fall_2026/
