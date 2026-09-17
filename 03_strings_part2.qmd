@@ -71,9 +71,9 @@ str_glue("The longest title is {max_length} characters long.")
 
 ## Important functions for identifying strings which match
 
-str_view() : most useful for testing str_subset() : useful for printing
-matches to the console str_detect() : useful when working within a
-tibble
+str_view() : most useful for testing 
+str_subset() : useful for printing matches to the console 
+str_detect() : useful when working within a tibble
 
 1.  Identify the input type and output type for each of these examples:
 
