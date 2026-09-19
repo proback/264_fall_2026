@@ -30,7 +30,7 @@ You will hand in this project by pushing your work (qmd file, data set(s), and r
 
 ## Evaluation Rubric
 
-Available [here](https://drive.google.com/file/d/1QhoyZSA0wm_WnwY1DEDOfCtWXhTaTSty/view?usp=sharing).
+Available soon!
 
 
 ## Timeline
