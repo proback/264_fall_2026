@@ -294,21 +294,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="on-your-own---extra-practice-with-strings-and-regular-expressions" class="level2">
 <h2 class="anchored" data-anchor-id="on-your-own---extra-practice-with-strings-and-regular-expressions">On Your Own - Extra practice with strings and regular expressions</h2>
-<ol type="1">
-<li><p>Describe the equivalents of ?, +, * in {m,n} form.</p></li>
-<li><p>Describe, in words, what the expression <code>"(.)(.)\\2\\1"</code> will match, and provide a word or expression as an example.</p></li>
+<ol start="18" type="1">
 <li><p>Produce an R string which the regular expression represented by <code>"\\..\\..\\.."</code> matches. In other words, find a string <code>y</code> below that produces a TRUE in <code>str_detect</code>.</p></li>
-<li><p>Solve with <code>str_subset()</code>, using the words from <code>stringr::words</code>:</p></li>
-</ol>
-<ul>
-<li>Find all words that start or end with x.</li>
-<li>Find all words that start with a vowel and end with a consonant.</li>
-<li>Find all words that start and end with the same letter</li>
-</ul>
-<ol start="5" type="1">
 <li><p>What words in <code>stringr::words</code> have the highest number of vowels? What words have the highest proportion of vowels? (Hint: what is the denominator?) Figure this out using the tidyverse and piping, starting with <code>as_tibble(words) |&gt;</code>.</p></li>
-<li><p>From the Harvard sentences data, use <code>str_extract</code> to produce a tibble with 3 columns: the sentence, the first word in the sentence, and the first word ending in “ed” (NA if there isn’t one).</p></li>
-<li><p>Find and output all contractions (words with apostrophes) in the Harvard sentences, assuming no sentence has multiple contractions.</p></li>
 <li><p><em>Carefully</em> explain what the code below does, both line by line and in general terms.</p></li>
 </ol>
 <div class="cell">
@@ -394,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>user_reviews <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(user_reviews, <span class="st">".leading-normal"</span>)</span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>user_reviews <span class="ot">&lt;-</span> <span class="fu">html_text</span>(user_reviews)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<ol start="9" type="1">
+<ol start="21" type="1">
 <li><code>top_reviews</code> is a character vector containing the 10 most recent critic reviews for Coco, while <code>user_reviews</code> is a character vector with the 50 most recent user reviews (although many are truncated).</li>
 </ol>
 <ol type="a">

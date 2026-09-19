@@ -20,32 +20,13 @@ library(httr)
 
 ## On Your Own - Extra practice with strings and regular expressions
 
-1. Describe the equivalents of ?, +, * in {m,n} form.
+18. Produce an R string which the regular expression represented by `"\\..\\..\\.."` matches.  In other words, find a string `y` below that produces a TRUE in `str_detect`.
 
 
-2. Describe, in words, what the expression `"(.)(.)\\2\\1"` will match, and provide a word or expression as an example.
+19. What words in `stringr::words` have the highest number of vowels? What words have the highest proportion of vowels? (Hint: what is the denominator?)  Figure this out using the tidyverse and piping, starting with `as_tibble(words) |>`.
 
 
-3. Produce an R string which the regular expression represented by `"\\..\\..\\.."` matches.  In other words, find a string `y` below that produces a TRUE in `str_detect`.
-
-
-4. Solve with `str_subset()`, using the words from `stringr::words`:
-
-- Find all words that start or end with x.
-- Find all words that start with a vowel and end with a consonant.
-- Find all words that start and end with the same letter
-
-
-5. What words in `stringr::words` have the highest number of vowels? What words have the highest proportion of vowels? (Hint: what is the denominator?)  Figure this out using the tidyverse and piping, starting with `as_tibble(words) |>`.
-
-
-6. From the Harvard sentences data, use `str_extract` to produce a tibble with 3 columns:  the sentence, the first word in the sentence, and the first word ending in "ed" (NA if there isn't one).
-
-
-7. Find and output all contractions (words with apostrophes) in the Harvard sentences, assuming no sentence has multiple contractions.
-
-
-8. *Carefully* explain what the code below does, both line by line and in general terms.
+20. *Carefully* explain what the code below does, both line by line and in general terms.
 
 ```{r}
 temp <- str_replace_all(words, "^([A-Za-z])(.*)([a-z])$", "\\3\\2\\1")
@@ -53,6 +34,7 @@ as_tibble(words) |>
   semi_join(as_tibble(temp)) |>
   print(n = Inf)
 ```
+
 
 
 ## Coco and Metacritic
@@ -83,7 +65,7 @@ user_reviews <- html_text(user_reviews)
 ```
 
 
-9. `top_reviews` is a character vector containing the 10 most recent critic reviews for Coco, while `user_reviews` is a character vector with the 50 most recent user reviews (although many are truncated).
+21. `top_reviews` is a character vector containing the 10 most recent critic reviews for Coco, while `user_reviews` is a character vector with the 50 most recent user reviews (although many are truncated).
 
 a) Print out the user reviews where the reviewer mentions "emotion" or "cry".  Think about various forms ("cried", "emotional", etc.)  You may want to turn reviews to all lower case before searching for matches.
 
