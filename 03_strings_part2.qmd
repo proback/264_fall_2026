@@ -235,7 +235,7 @@ str_view(spot_smaller$album_release_date, "\\d{4}-\\d{2}")
     explain.
 
 -   `"^.*$"`
--   `"\{.+\}"`
+-   `"\\{.+\\}"`
 
 10. Create regular expressions to find all `stringr::words` that:
 
