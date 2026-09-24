@@ -363,24 +363,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="coco-and-metacritic">Coco and Metacritic</h2>
 <p>We will check out the Metacritic page for the 2017 movie Coco, scrape information from that page (we’ll get into web scraping in a few weeks!), clean it up into a usable format, and answer some questions using strings and regular expressions.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(polite)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>coco <span class="ot">&lt;-</span> <span class="st">"https://www.metacritic.com/movie/coco-2017/"</span> <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bow</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scrape</span>()</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>top_reviews <span class="ot">&lt;-</span> </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://www.metacritic.com/movie/coco-2017/critic-reviews/"</span> <span class="sc">|&gt;</span> </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bow</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scrape</span>()</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>top_reviews <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(top_reviews, <span class="st">".leading-normal"</span>)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>top_reviews <span class="ot">&lt;-</span> <span class="fu">html_text</span>(top_reviews)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>user_reviews <span class="ot">&lt;-</span> </span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://www.metacritic.com/movie/coco-2017/user-reviews"</span> <span class="sc">|&gt;</span> </span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bow</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scrape</span>()</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>user_reviews <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(user_reviews, <span class="st">".leading-normal"</span>)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>user_reviews <span class="ot">&lt;-</span> <span class="fu">html_text</span>(user_reviews)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("remotes")</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#remotes::install_github("dmi3kno/polite")</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(polite)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>coco <span class="ot">&lt;-</span> <span class="st">"https://www.metacritic.com/movie/coco-2017/"</span> <span class="sc">|&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bow</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scrape</span>()</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>top_reviews <span class="ot">&lt;-</span> </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://www.metacritic.com/movie/coco-2017/critic-reviews/"</span> <span class="sc">|&gt;</span> </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bow</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scrape</span>()</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>top_reviews <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(top_reviews, <span class="st">".leading-normal"</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>top_reviews <span class="ot">&lt;-</span> <span class="fu">html_text</span>(top_reviews)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>user_reviews <span class="ot">&lt;-</span> </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://www.metacritic.com/movie/coco-2017/user-reviews"</span> <span class="sc">|&gt;</span> </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bow</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scrape</span>()</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>user_reviews <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(user_reviews, <span class="st">".leading-normal"</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>user_reviews <span class="ot">&lt;-</span> <span class="fu">html_text</span>(user_reviews)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="21" type="1">
 <li><code>top_reviews</code> is a character vector containing the 10 most recent critic reviews for Coco, while <code>user_reviews</code> is a character vector with the 50 most recent user reviews (although many are truncated).</li>

@@ -44,7 +44,10 @@ We will check out the Metacritic page for the 2017 movie Coco, scrape informatio
 ```{r}
 #| eval: false
 
+#install.packages("remotes")
+#remotes::install_github("dmi3kno/polite")
 library(polite)
+
 coco <- "https://www.metacritic.com/movie/coco-2017/" |>
   bow() |> 
   scrape()
