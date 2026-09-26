@@ -187,6 +187,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./04_strings_part3.html">
  <span class="dropdown-text">Strings: Extra Practice (Part 3)</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./05_text_analysis.html">
+ <span class="dropdown-text">Text analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./06_data_types.html">
+ <span class="dropdown-text">Data types</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -255,6 +263,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./04_strings_part3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Strings: Extra Practice (Part 3)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_text_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Text analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_data_types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data types</span></a>
   </div>
 </li>
     </ul>
@@ -427,8 +447,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(spot_smaller<span class="sc">$</span>subgenre, <span class="st">"pop"</span>, <span class="at">html =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="str_view html-widget html-fill-item" id="htmlwidget-b70b0098cfa1b30933e0" style="width:960px;height:100%;"></div>
-<script type="application/json" data-for="htmlwidget-b70b0098cfa1b30933e0">{"x":{"html":"<ul>\n  <li><pre>indie <span class='match'>pop<\/span>timism<\/pre><\/li>\n  <li><pre>post-teen <span class='match'>pop<\/span><\/pre><\/li>\n  <li><pre>hip <span class='match'>pop<\/span><\/pre><\/li>\n  <li><pre>hip <span class='match'>pop<\/span><\/pre><\/li>\n  <li><pre>latin <span class='match'>pop<\/span><\/pre><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="str_view html-widget html-fill-item" id="htmlwidget-161778f0ca8797bc8b05" style="width:960px;height:100%;"></div>
+<script type="application/json" data-for="htmlwidget-161778f0ca8797bc8b05">{"x":{"html":"<ul>\n  <li><pre>indie <span class='match'>pop<\/span>timism<\/pre><\/li>\n  <li><pre>post-teen <span class='match'>pop<\/span><\/pre><\/li>\n  <li><pre>hip <span class='match'>pop<\/span><\/pre><\/li>\n  <li><pre>hip <span class='match'>pop<\/span><\/pre><\/li>\n  <li><pre>latin <span class='match'>pop<\/span><\/pre><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_subset</span>(spot_smaller<span class="sc">$</span>subgenre, <span class="st">"pop"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
