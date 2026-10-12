@@ -49,11 +49,13 @@ website:
         - 05_text_analysis.qmd
         - 06_data_types.qmd
         - 07_functions.qmd
+        - 08_iteration.qmd
 
     - id: projects
       title: "Projects"
       contents:
         - miniproject01.qmd
+        - miniproject02.qmd
 
   page-footer:
     left: |

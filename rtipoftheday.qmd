@@ -13,7 +13,7 @@ sidebar: false
 
 [Code for my example](https://github.com/proback/264_fall_2026/blob/main/quarto_presentations/rtd_example.qmd)
 
-**RTD rubric**: TBD
+[RTD rubric](https://drive.google.com/file/d/1GIyQ66G3O8bzLL6ylw1WATNhz0bG0cLa/view?usp=sharing)
 
 
 > TIP: Create your presentation in a new project (separate from the one you created for class). You can run the presentation from your own machine OR you can publish it to the RStudio/Posit Connect server. To do this:
