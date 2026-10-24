@@ -379,6 +379,18 @@ make_plot(dataset = mpg, xvar = cty, yvar = hwy)
 I often wish it were easier to get my own custom summary statistics for numeric variables in EDA rather than using `mosaic::favstats()`.  Using `group_by()` and `summarise()` from the tidyverse reads clearly but takes so many lines, but if I only had to write the code once...
 
 ```{r}
+# First write code that works
+mpg |> summarize(
+  mean = mean(cty, na.rm = TRUE),
+  median = median(cty, na.rm = TRUE),
+  sd = sd(cty, na.rm = TRUE),
+  IQR = IQR(cty, na.rm = TRUE),
+  n = n(),
+  n_miss = sum(is.na(cty)),
+  .groups = "drop"    # to leave the data in an ungrouped state
+)
+
+# Then functionize it
 summary6 <- function(data, var) {
   data |> summarize(
     mean = mean({{ var }}, na.rm = TRUE),
@@ -391,6 +403,7 @@ summary6 <- function(data, var) {
   )
 }
 
+# Then test it
 mpg |> summary6(hwy)
 ```
 
@@ -416,15 +429,18 @@ new_function <- function(df, var, condition, sort = TRUE) {
     mutate(prop = n / sum(n))
 }
 
-mpg |> new_function(var = manufacturer, 
-                    condition = manufacturer %in% c("audi", 
-                                                    "honda", 
-                                                    "hyundai", 
-                                                    "nissan", 
-                                                    "subaru", 
-                                                    "toyota", 
-                                                    "volkswagen")
-                    )
+mpg |> new_function(
+  var = manufacturer, 
+  condition = manufacturer %in% c(
+    "audi", 
+    "honda", 
+    "hyundai", 
+    "nissan", 
+    "subaru", 
+    "toyota", 
+    "volkswagen"
+  )
+)
 ```
 
 ### Data-masking vs. tidy-selection (Section 25.3.4)
