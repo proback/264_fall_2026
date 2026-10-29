@@ -41,7 +41,9 @@ In your proposal, describe your motivations for obtaining the data you plan to g
 
 You and your partner must (a) set up a GitHub repository where one person is the Owner and the other is a Collaborator, (b) connect the GitHub repository to an R project that you edit in your own RStudio on your laptop, (c) certify that you and your partner can handle Merge Conflicts, should they arise, (d) certify that you can open and close Issues, and (e) certify that you can create and accept Pull Requests from a new branch.
 
-To obtain your "certification" in (c), follow the instructions [here](https://learning.nceas.ucsb.edu/2023-04-coreR/session_10.html) while sitting with your partner. Read the  entire Chapter 10, and then specifically follow Steps 1-6 in Section 10.2 (don't worry about the Exercise  box that follows Step 6) and then follow Steps 1-11 in Section 10.4 (again don't worry about the Exercise  box that follows Step 11). To receive your "certification", you will upload screenshots as in Step 11 but with details from you and your partner.
+#### To obtain your "certification" in (c):
+
+Follow the instructions [here](https://learning.nceas.ucsb.edu/2023-04-coreR/session_10.html) while sitting with your partner. Read the  entire Chapter 10, and then specifically follow Steps 1-6 in Section 10.2 (don't worry about the Exercise  box that follows Step 6) and then follow Steps 1-11 in Section 10.4 (again don't worry about the Exercise  box that follows Step 11). To receive your "certification", you will upload screenshots as in Step 11 but with details from you and your partner.
 
 The following notes may help as your working through the instructions in Chapter 10: 
 
@@ -51,7 +53,19 @@ The following notes may help as your working through the instructions in Chapter
 - Before Step 4 (in Part 1), the Owner *may* have to remove the .Rproj and .gitignore folders, and they *may* also have to reload GitHub 
 - In Step 8 (Part 2), click Stage even though it looks like the blue box is filled 
 
-Details on how to obtain certification for (d) and (e) will be coming soon.
+#### To obtain your "certification" in (d):
+
+One of you should add an issue (see [here](https://inbo.github.io/git-course/workflow_review.html) for a nice concise description of issues) to propose a change or point out an issue and then assign the issue to your partner.  The partner should respond and close the issue.  Submit a screenshot that looks like [this](https://drive.google.com/file/d/1U0h8WT2qwrojMMhMRrAZaFK1HwZvsypX/view?usp=sharing).
+
+#### To obtain your "certification" in (e):
+
+Read Sections 17.1-17.3 [here](https://learning.nceas.ucsb.edu/2023-04-coreR/session_17.html) while sitting with your partner. Follow the instructions in Section 17.3.1 so that one partner forms a branch, makes some changes, and then submit a Pull Request.  The other partner will then review the Pull Request and merge the changes into the main branch.  Submit a screenshot of a Pull Request as in Section 17.3.1.2, and a second screenshot of a successful merge as in Section 17.3.1.4.
+
+#### Summary of GitHub Collaboration "certification" requirements:
+
+- c) submit a screenshot of a resolved Merge Conflict as in Section 10.4, Step 11, of the NCEAS guide
+- d) submit a screenshot of a closed Issue as in the sample pdf above
+- e) submit 2 screenshots of a Pull Request and a successful merge as in Section 17.3.1 of the NCEAS guide
 
 
 ### Stage III: Project Submission 
