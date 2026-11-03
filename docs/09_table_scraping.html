@@ -428,198 +428,119 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(mpls, <span class="at">css =</span> <span class="st">"table"</span>) </span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>tables  <span class="co"># have to guesstimate which table contains climate info</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{xml_nodeset (8)}
-[1] &lt;table id="monthly_table_one" class="table table-hover tablesaw tablesaw- ...
-[2] &lt;table id="monthly_table_two" class="table table-hover tablesaw tablesaw- ...
-[3] &lt;table class="table table-hover tablesaw tablesaw-mode-swipe mt-4 daily_t ...
-[4] &lt;table class="table table-hover tablesaw tablesaw-mode-swipe mt-4 history ...
-[5] &lt;table class="table table-striped table-hover tablesaw tablesaw-mode-swip ...
-[6] &lt;table class="table table-hover tablesaw geo_table"&gt;\n&lt;thead&gt;&lt;tr&gt;\n&lt;th cl ...
-[7] &lt;table class="table table-hover tablesaw datetime_table" data-tablesaw-hi ...
-[8] &lt;table class="table table-hover tablesaw monthly_summary_table" data-tabl ...</code></pre>
+<pre><code>{xml_nodeset (3)}
+[1] &lt;table class="cd-mon-table"&gt;\n&lt;thead&gt;&lt;tr&gt;\n&lt;th scope="col"&gt;Month&lt;/th&gt;\n&lt;t ...
+[2] &lt;table class="cd-mon-table cd-day-table daily_table"&gt;\n&lt;thead&gt;&lt;tr&gt;\n&lt;th s ...
+[3] &lt;table class="cd-mon-table cd-day-table cd-hist-table history_table"&gt;\n&lt;t ...</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3: html_table()</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">html_table</span>(tables, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)    <span class="co"># find the right table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
-# A tibble: 6 × 7
-  ``                                    JanJa  FebFe  MarMa  AprAp  MayMa  JunJu
-  &lt;chr&gt;                                 &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-1 Average high in ºF Av. high Hi         24    29     41     58     69     79   
-2 Average low in ºF Av. low Lo            8    13     24     37     49     59   
-3 Days with precipitation Days precip.…   8     7     11      9     11     13   
-4 Hours of sunshine Hours sun. Sun      140   166    200    231    272    302   
-5 Av. precipitation in inch Av. precip…   0.9   0.77   1.89   2.66   3.36   4.25
-6 Av. snowfall in inch Snowfall Sn       12     8     10      3      0      0   
+# A tibble: 12 × 7
+   Month HighºF LowºF Precipinch `Wet days` Sunshineh Snowinch
+   &lt;chr&gt;  &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;      &lt;int&gt;     &lt;int&gt;    &lt;int&gt;
+ 1 Jan       24     8       0.9           8       140       12
+ 2 Feb       29    13       0.77          7       166        8
+ 3 Mar       41    24       1.89         11       200       10
+ 4 Apr       58    37       2.66          9       231        3
+ 5 May       69    49       3.36         11       272        0
+ 6 Jun       79    59       4.25         13       302        0
+ 7 Jul       83    64       4.04         10       343        0
+ 8 Aug       80    62       4.3          10       296        0
+ 9 Sep       72    52       3.08          9       237        0
+10 Oct       58    40       2.43          8       193        1
+11 Nov       41    26       1.77          8       115        9
+12 Dec       27    12       1.16          8       112       12
 
 [[2]]
-# A tibble: 6 × 7
-  ``                                     JulJu AugAu  SepSe  OctOc  NovNo  DecDe
-  &lt;chr&gt;                                  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-1 Average high in ºF Av. high Hi         83     80    72     58     41     27   
-2 Average low in ºF Av. low Lo           64     62    52     40     26     12   
-3 Days with precipitation Days precip.…  10     10     9      8      8      8   
-4 Hours of sunshine Hours sun. Sun      343    296   237    193    115    112   
-5 Av. precipitation in inch Av. precip…   4.04   4.3   3.08   2.43   1.77   1.16
-6 Av. snowfall in inch Snowfall Sn        0      0     0      1      9     12   
-
-[[3]]
 # A tibble: 31 × 7
    Day    HighºF LowºF `Prec/moinch` `Prec/yrinch` `Snow/moinch` `Snow/yrinch`
    &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
- 1 1 Jan    24.6  10.7          0.03          0.03           0.3           0.3
- 2 2 Jan    24.4  10.5          0.06          0.06           0.7           0.7
- 3 3 Jan    24.2  10.3          0.1           0.1            1.1           1.1
- 4 4 Jan    24.1  10.1          0.13          0.13           1.4           1.4
- 5 5 Jan    24     9.9          0.16          0.16           1.8           1.8
- 6 6 Jan    23.8   9.7          0.19          0.19           2.2           2.2
- 7 7 Jan    23.7   9.5          0.23          0.23           2.5           2.5
- 8 8 Jan    23.6   9.3          0.26          0.26           2.9           2.9
- 9 9 Jan    23.5   9.2          0.29          0.29           3.2           3.2
-10 10 Jan   23.4   9            0.32          0.32           3.6           3.6
+ 1 Jan 1    24.6  10.7          0.03          0.03           0.3           0.3
+ 2 Jan 2    24.4  10.5          0.06          0.06           0.7           0.7
+ 3 Jan 3    24.2  10.3          0.1           0.1            1.1           1.1
+ 4 Jan 4    24.1  10.1          0.13          0.13           1.4           1.4
+ 5 Jan 5    24     9.9          0.16          0.16           1.8           1.8
+ 6 Jan 6    23.8   9.7          0.19          0.19           2.2           2.2
+ 7 Jan 7    23.7   9.5          0.23          0.23           2.5           2.5
+ 8 Jan 8    23.6   9.3          0.26          0.26           2.9           2.9
+ 9 Jan 9    23.5   9.2          0.29          0.29           3.2           3.2
+10 Jan 10   23.4   9            0.32          0.32           3.6           3.6
 # ℹ 21 more rows
 
-[[4]]
-# A tibble: 31 × 6
-   Day    HighºF LowºF Precip.inch Snowinch `Snow d.inch`
-   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;        
- 1 01 Oct 66.9   50.0  0.00        0.00     0.0          
- 2 02 Oct 64.0   44.1  0.00        0.00     0.0          
- 3 03 Oct 71.1   54.0  0.03        0.00     0.0          
- 4 04 Oct -      -     -           -        -            
- 5 05 Oct -      -     -           -        -            
- 6 06 Oct -      -     -           -        -            
- 7 07 Oct 73.9   52.0  0.00        0.00     0.0          
- 8 08 Oct 66.9   48.0  0.00        0.00     0.0          
- 9 09 Oct 73.0   50.0  0.00        0.00     0.0          
-10 10 Oct 90.0   60.1  0.00        0.00     0.0          
-# ℹ 21 more rows
-
-[[5]]
-# A tibble: 9 × 4
-  ``                                          `Oct 26`    ``    Normal     
-  &lt;chr&gt;                                       &lt;chr&gt;       &lt;lgl&gt; &lt;chr&gt;      
-1 "Average high temperature Av. high temp."   "70.2 ºF"   NA    "58 ºF"    
-2 "Average low temperature Av. low temp."     "50.8 ºF"   NA    "40 ºF"    
-3 "Total precipitation Total precip."         "0.82 inch" NA    "2.43 inch"
-4 "Total snowfall Total snowfall"             "0.00 inch" NA    "1 inch"   
-5 ""                                          ""          NA    ""         
-6 "Highest max temperature Highest max temp." "90.0 ºF"   NA    "-"        
-7 "Lowest max temperature Lowest max temp."   "51.1 ºF"   NA    "-"        
-8 "Highest min temperature Highest min temp." "64.9 ºF"   NA    "-"        
-9 "Lowest min temperature Lowest min temp."   "39.9 ºF"   NA    "-"        
-
-[[6]]
-# A tibble: 10 × 3
-   ``                   ``                ``   
-   &lt;chr&gt;                &lt;chr&gt;             &lt;lgl&gt;
- 1 Country              United States     NA   
- 2 State                Minnesota         NA   
- 3 County               Hennepin          NA   
- 4 City                 Minneapolis       NA   
- 5 Zip Code             55401             NA   
- 6 Longitude            -93.27 dec. degr. NA   
- 7 Latitude             44.98 dec. degr.  NA   
- 8 Altitude - Elevation 840ft             NA   
- 9 ICAO                 -                 NA   
-10 IATA                 -                 NA   
-
-[[7]]
-# A tibble: 6 × 3
-  ``          ``                    ``   
-  &lt;chr&gt;       &lt;chr&gt;                 &lt;lgl&gt;
-1 Local Time  10:30 PM              NA   
-2 Sunrise     07:44 AM              NA   
-3 Sunset      06:08 PM              NA   
-4 Day/Night   Night                 NA   
-5 Timezone    Central Daylight Time NA   
-6 Timezone DB America - Chicago     NA   
-
-[[8]]
-# A tibble: 6 × 2
-  ``                         ``        
-  &lt;chr&gt;                      &lt;chr&gt;     
-1 Annual high temperature    55ºF      
-2 Annual low temperature     37ºF      
-3 Days per year with precip. 112 days  
-4 Annual hours of sunshine   2607 hours
-5 Average annual precip.     30.61 inch
-6 Av. annual snowfall        55 inch   </code></pre>
+[[3]]
+# A tibble: 31 × 4
+   Day    HighºF LowºF Precip.inch
+   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;      
+ 1 Oct 1  66.9   50.0  0.00       
+ 2 Oct 2  64.0   44.1  0.00       
+ 3 Oct 3  71.1   54.0  0.03       
+ 4 Oct 4  –      –     –          
+ 5 Oct 5  –      –     –          
+ 6 Oct 6  –      –     –          
+ 7 Oct 7  73.9   52.0  0.00       
+ 8 Oct 8  66.9   48.0  0.00       
+ 9 Oct 9  73.0   50.0  0.00       
+10 Oct 10 90.0   60.1  0.00       
+# ℹ 21 more rows</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mpls_data1 <span class="ot">&lt;-</span> <span class="fu">html_table</span>(tables, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]]  </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mpls_data1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mpls_data <span class="ot">&lt;-</span> <span class="fu">html_table</span>(tables, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]]  </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mpls_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 7
-  ``                                    JanJa  FebFe  MarMa  AprAp  MayMa  JunJu
-  &lt;chr&gt;                                 &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-1 Average high in ºF Av. high Hi         24    29     41     58     69     79   
-2 Average low in ºF Av. low Lo            8    13     24     37     49     59   
-3 Days with precipitation Days precip.…   8     7     11      9     11     13   
-4 Hours of sunshine Hours sun. Sun      140   166    200    231    272    302   
-5 Av. precipitation in inch Av. precip…   0.9   0.77   1.89   2.66   3.36   4.25
-6 Av. snowfall in inch Snowfall Sn       12     8     10      3      0      0   </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mpls_data2 <span class="ot">&lt;-</span> <span class="fu">html_table</span>(tables, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)[[<span class="dv">2</span>]]  </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>mpls_data2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 7
-  ``                                     JulJu AugAu  SepSe  OctOc  NovNo  DecDe
-  &lt;chr&gt;                                  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-1 Average high in ºF Av. high Hi         83     80    72     58     41     27   
-2 Average low in ºF Av. low Lo           64     62    52     40     26     12   
-3 Days with precipitation Days precip.…  10     10     9      8      8      8   
-4 Hours of sunshine Hours sun. Sun      343    296   237    193    115    112   
-5 Av. precipitation in inch Av. precip…   4.04   4.3   3.08   2.43   1.77   1.16
-6 Av. snowfall in inch Snowfall Sn        0      0     0      1      9     12   </code></pre>
+<pre><code># A tibble: 12 × 7
+   Month HighºF LowºF Precipinch `Wet days` Sunshineh Snowinch
+   &lt;chr&gt;  &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;      &lt;int&gt;     &lt;int&gt;    &lt;int&gt;
+ 1 Jan       24     8       0.9           8       140       12
+ 2 Feb       29    13       0.77          7       166        8
+ 3 Mar       41    24       1.89         11       200       10
+ 4 Apr       58    37       2.66          9       231        3
+ 5 May       69    49       3.36         11       272        0
+ 6 Jun       79    59       4.25         13       302        0
+ 7 Jul       83    64       4.04         10       343        0
+ 8 Aug       80    62       4.3          10       296        0
+ 9 Sep       72    52       3.08          9       237        0
+10 Oct       58    40       2.43          8       193        1
+11 Nov       41    26       1.77          8       115        9
+12 Dec       27    12       1.16          8       112       12</code></pre>
 </div>
 </div>
 <p>Now we wrap the 4 steps above into the <code>bow</code> and <code>scrape</code> functions from the <code>polite</code> package:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>session <span class="ot">&lt;-</span> <span class="fu">bow</span>(<span class="st">"https://www.usclimatedata.com/climate/minneapolis/minnesota/united-states/usmn0503"</span>, <span class="at">force =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">scrape</span>(session) <span class="sc">|&gt;</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="at">css =</span> <span class="st">"table"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>(<span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>mpls_data1 <span class="ot">&lt;-</span> result[[<span class="dv">1</span>]]</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>mpls_data2 <span class="ot">&lt;-</span> result[[<span class="dv">2</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Even after finding the correct tables, there may still be a lot of work to make it tidy!!!</p>
-<p><strong>[Pause to Ponder:]</strong> What is each line of code doing below?</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_cols</span>(mpls_data1, mpls_data2) <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">...8</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">...1</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">str_extract</span>(<span class="st">`</span><span class="at">...1</span><span class="st">`</span>, <span class="st">"[^ ]+ [^ ]+ [^ ]+"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">JanJa</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">DecDe</span><span class="st">`</span>), </span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"month"</span>, <span class="at">values_to =</span> <span class="st">"weather"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">`</span><span class="at">...1</span><span class="st">`</span>, <span class="at">values_from =</span> weather) <span class="sc">|&gt;</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">str_sub</span>(month, <span class="dv">1</span>, <span class="dv">3</span>))  <span class="sc">|&gt;</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">avg_high =</span> <span class="st">"Average high in"</span>,</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">avg_low =</span> <span class="st">"Average low in"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-• `` -&gt; `...1`
-• `` -&gt; `...8`</code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>session <span class="ot">&lt;-</span> <span class="fu">bow</span>(<span class="st">"https://www.usclimatedata.com/climate/minneapolis/minnesota/united-states/usmn0503"</span>, <span class="at">force =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">scrape</span>(session) <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="at">css =</span> <span class="st">"table"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>(<span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>mpls_data <span class="ot">&lt;-</span> result[[<span class="dv">1</span>]]</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># clean things up, especially column names</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>mpls_data <span class="sc">|&gt;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_high_F =</span> <span class="dv">2</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_low_F =</span> <span class="dv">3</span>,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">precip_inch =</span> <span class="dv">4</span>,</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">num_wet_days =</span> <span class="dv">5</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">sunshine_hrs =</span> <span class="dv">6</span>,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">snow_inch =</span> <span class="dv">7</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 7
-   month avg_high avg_low `Days with precipitation` `Hours of sunshine`
-   &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;                     &lt;dbl&gt;               &lt;dbl&gt;
- 1 Jan         24       8                         8                 140
- 2 Feb         29      13                         7                 166
- 3 Mar         41      24                        11                 200
- 4 Apr         58      37                         9                 231
- 5 May         69      49                        11                 272
- 6 Jun         79      59                        13                 302
- 7 Jul         83      64                        10                 343
- 8 Aug         80      62                        10                 296
- 9 Sep         72      52                         9                 237
-10 Oct         58      40                         8                 193
-11 Nov         41      26                         8                 115
-12 Dec         27      12                         8                 112
-# ℹ 2 more variables: `Av. precipitation in` &lt;dbl&gt;, `Av. snowfall in` &lt;dbl&gt;</code></pre>
+   Month avg_high_F avg_low_F precip_inch num_wet_days sunshine_hrs snow_inch
+   &lt;chr&gt;      &lt;int&gt;     &lt;int&gt;       &lt;dbl&gt;        &lt;int&gt;        &lt;int&gt;     &lt;int&gt;
+ 1 Jan           24         8        0.9             8          140        12
+ 2 Feb           29        13        0.77            7          166         8
+ 3 Mar           41        24        1.89           11          200        10
+ 4 Apr           58        37        2.66            9          231         3
+ 5 May           69        49        3.36           11          272         0
+ 6 Jun           79        59        4.25           13          302         0
+ 7 Jul           83        64        4.04           10          343         0
+ 8 Aug           80        62        4.3            10          296         0
+ 9 Sep           72        52        3.08            9          237         0
+10 Oct           58        40        2.43            8          193         1
+11 Nov           41        26        1.77            8          115         9
+12 Dec           27        12        1.16            8          112        12</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probably want to rename the rest of the variables too!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="on-your-own" class="level3">
 <h3 class="anchored" data-anchor-id="on-your-own">On Your Own</h3>
@@ -627,48 +548,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Use the <code>rvest</code> package and <code>html_table</code> to read in the table of data found at the link <a href="https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population">here</a> and create a scatterplot of land area versus the 2025 estimated population. I give you some starter code below; fill in the “???” and be sure you can explain what EVERY line of code does and why it’s necessary.</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>city_pop <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population"</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(???, ???)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">html_table</span>(pop, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)  <span class="co"># find right table</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>pop2 <span class="ot">&lt;-</span> <span class="fu">html_table</span>(pop, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)[[???]]</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>pop2</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co"># perform the steps above with the polite package</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>session <span class="ot">&lt;-</span> <span class="fu">bow</span>(<span class="st">"https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population"</span>, <span class="at">force =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">scrape</span>(session) <span class="sc">|&gt;</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(???) <span class="sc">|&gt;</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>(<span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>pop2 <span class="ot">&lt;-</span> result[[???]]</span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>pop2</span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>pop3 <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(pop2[,<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">8</span>)]) <span class="sc">|&gt;</span></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(???) <span class="sc">|&gt;</span></span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">City</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">Municipality</span><span class="st">`</span>,</span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">State</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">ST</span><span class="st">`</span>,</span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Estimate2025</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">2025estimate</span><span class="st">`</span>,</span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Census</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">2020census</span><span class="st">`</span>,</span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Area</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">2020 land area</span><span class="st">`</span>,</span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Density</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">2020 density</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Estimate2025 =</span> <span class="fu">parse_number</span>(Estimate2025),</span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>         <span class="at">Census =</span> <span class="fu">parse_number</span>(Census),</span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>         <span class="co">#Change = ???   # get rid of % but preserve +/- (optional),</span></span>
-<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>         <span class="at">Area =</span> <span class="fu">parse_number</span>(Area),</span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">Density =</span> <span class="fu">parse_number</span>(Density)) <span class="sc">|&gt;</span> </span>
-<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">City =</span> <span class="fu">str_replace</span>(City, <span class="st">"</span><span class="sc">\\</span><span class="st">[.*$"</span>, <span class="st">""</span>))</span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>pop3</span>
-<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a><span class="co"># pick out unusual points</span></span>
-<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> pop3 <span class="sc">|&gt;</span> </span>
-<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Estimate2025 <span class="sc">&gt;</span> ??? <span class="sc">|</span> Area <span class="sc">&gt;</span> ???)</span>
-<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a><span class="co"># This will work if don't turn variables from chr to dbl, but in that </span></span>
-<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a><span class="co">#  case notice how axes are just evenly spaced categorical variables</span></span>
-<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pop3, <span class="fu">aes</span>(<span class="at">x =</span> ???, <span class="at">y =</span> ???)) <span class="sc">+</span></span>
-<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  <span class="sc">+</span></span>
-<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
-<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_label_repel</span>(<span class="at">data =</span> ???, <span class="fu">aes</span>(<span class="at">label =</span> ???))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>city_pop <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(???, ???)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">html_table</span>(pop, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)  <span class="co"># find right table</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>pop2 <span class="ot">&lt;-</span> <span class="fu">html_table</span>(pop, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)[[???]]</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>pop2</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># perform the steps above with the polite package</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>session <span class="ot">&lt;-</span> <span class="fu">bow</span>(<span class="st">"https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population"</span>, <span class="at">force =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">scrape</span>(session) <span class="sc">|&gt;</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(???) <span class="sc">|&gt;</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>(<span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>pop2 <span class="ot">&lt;-</span> result[[???]]</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>pop2</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>pop3 <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(pop2[,<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">8</span>)]) <span class="sc">|&gt;</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(???) <span class="sc">|&gt;</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">City</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">Municipality</span><span class="st">`</span>,</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">State</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">ST</span><span class="st">`</span>,</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Estimate2025</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">2025estimate</span><span class="st">`</span>,</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Census</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">2020census</span><span class="st">`</span>,</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Area</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">2020 land area</span><span class="st">`</span>,</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Density</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">2020 density</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Estimate2025 =</span> <span class="fu">parse_number</span>(Estimate2025),</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>         <span class="at">Census =</span> <span class="fu">parse_number</span>(Census),</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>         <span class="co">#Change = ???   # get rid of % but preserve +/- (optional),</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>         <span class="at">Area =</span> <span class="fu">parse_number</span>(Area),</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">Density =</span> <span class="fu">parse_number</span>(Density)) <span class="sc">|&gt;</span> </span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">City =</span> <span class="fu">str_replace</span>(City, <span class="st">"</span><span class="sc">\\</span><span class="st">[.*$"</span>, <span class="st">""</span>))</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>pop3</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a><span class="co"># pick out unusual points</span></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> pop3 <span class="sc">|&gt;</span> </span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Estimate2025 <span class="sc">&gt;</span> ??? <span class="sc">|</span> Area <span class="sc">&gt;</span> ???)</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a><span class="co"># This will work if don't turn variables from chr to dbl, but in that </span></span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a><span class="co">#  case notice how axes are just evenly spaced categorical variables</span></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pop3, <span class="fu">aes</span>(<span class="at">x =</span> ???, <span class="at">y =</span> ???)) <span class="sc">+</span></span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  <span class="sc">+</span></span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_label_repel</span>(<span class="at">data =</span> ???, <span class="fu">aes</span>(<span class="at">label =</span> ???))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="2" type="1">
 <li>In 12_maps.qmd we will see how to create an interactive U.S. map showing population densities by state. Right now, let’s see if we can use our new web scraping skills to scrape the correct population density data and create a tidy data frame!</li>

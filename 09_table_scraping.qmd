@@ -80,10 +80,8 @@ tables  # have to guesstimate which table contains climate info
 
 # 3: html_table()
 html_table(tables, header = TRUE, fill = TRUE)    # find the right table
-mpls_data1 <- html_table(tables, header = TRUE, fill = TRUE)[[1]]  
-mpls_data1
-mpls_data2 <- html_table(tables, header = TRUE, fill = TRUE)[[2]]  
-mpls_data2
+mpls_data <- html_table(tables, header = TRUE, fill = TRUE)[[1]]  
+mpls_data
 ```
 
 Now we wrap the 4 steps above into the `bow` and `scrape` functions from the `polite` package:
@@ -94,29 +92,20 @@ session <- bow("https://www.usclimatedata.com/climate/minneapolis/minnesota/unit
 result <- scrape(session) |>
   html_nodes(css = "table") |> 
   html_table(header = TRUE, fill = TRUE)
-mpls_data1 <- result[[1]]
-mpls_data2 <- result[[2]]
+mpls_data <- result[[1]]
+
+# clean things up, especially column names
+mpls_data |>
+  rename(
+    avg_high_F = 2,
+    avg_low_F = 3,
+    precip_inch = 4,
+    num_wet_days = 5,
+    sunshine_hrs = 6,
+    snow_inch = 7
+  )
 ```
 
-
-Even after finding the correct tables, there may still be a lot of work to make it tidy!!!  
-
-**[Pause to Ponder:]** What is each line of code doing below?
-
-```{r}
-bind_cols(mpls_data1, mpls_data2) |>
-  as_tibble() |> 
-  select(-`...8`) |>
-  mutate(`...1` = str_extract(`...1`, "[^ ]+ [^ ]+ [^ ]+")) |> 
-  pivot_longer(cols = c(`JanJa`:`DecDe`), 
-               names_to = "month", values_to = "weather") |>
-  pivot_wider(names_from = `...1`, values_from = weather) |>
-  mutate(month = str_sub(month, 1, 3))  |>
-  rename(avg_high = "Average high in",
-         avg_low = "Average low in")
-
-# Probably want to rename the rest of the variables too!
-```
 
 
 ### On Your Own

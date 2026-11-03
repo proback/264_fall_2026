@@ -73,7 +73,8 @@ Read Sections 17.1-17.3 [here](https://learning.nceas.ucsb.edu/2023-04-coreR/ses
 You will submit a link to a GitHub repo that contains:
 
 $\Box$ a quarto file with your code, and 
-$\Box$ at least one .csv file (formed using `write_csv()`) containing data you have acquired and then cleaned.  
+$\Box$ at least one .csv file (formed using `write_csv()`) containing data you have acquired and then cleaned. 
+$\Box$ a reflection on the collaboration methods you used.  Did you create issues, branches, and pull requests in GitHub?  Describe the methods you used to work together and what you liked about your approach and how it could be improved in the future.  This file can be in any format.
 
 >Your quarto file should contain *at least* one custom function and possibly iteration techniques as well.  Be sure that it is well commented (including describing each variable in your final .csv file(s)) and that it conforms to style guidelines.
 
