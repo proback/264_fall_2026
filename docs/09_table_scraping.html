@@ -207,6 +207,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./11_apis.html">
  <span class="dropdown-text">Data Acquisition with APIs in R</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./12_maps.html">
+ <span class="dropdown-text">Creating informative maps</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -321,6 +325,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./11_apis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Acquisition with APIs in R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Creating informative maps</span></a>
   </div>
 </li>
     </ul>
@@ -470,20 +480,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ 21 more rows
 
 [[3]]
-# A tibble: 31 × 4
+# A tibble: 30 × 4
    Day    HighºF LowºF Precip.inch
    &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;      
- 1 Oct 1  66.9   50.0  0.00       
- 2 Oct 2  64.0   44.1  0.00       
- 3 Oct 3  71.1   54.0  0.03       
- 4 Oct 4  –      –     –          
- 5 Oct 5  –      –     –          
- 6 Oct 6  –      –     –          
- 7 Oct 7  73.9   52.0  0.00       
- 8 Oct 8  66.9   48.0  0.00       
- 9 Oct 9  73.0   50.0  0.00       
-10 Oct 10 90.0   60.1  0.00       
-# ℹ 21 more rows</code></pre>
+ 1 Nov 1  71.1   53.1  0.00       
+ 2 Nov 2  –      –     –          
+ 3 Nov 3  –      –     –          
+ 4 Nov 4  –      –     –          
+ 5 Nov 5  –      –     –          
+ 6 Nov 6  –      –     –          
+ 7 Nov 7  –      –     –          
+ 8 Nov 8  –      –     –          
+ 9 Nov 9  –      –     –          
+10 Nov 10 –      –     –          
+# ℹ 20 more rows</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mpls_data <span class="ot">&lt;-</span> <span class="fu">html_table</span>(tables, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]]  </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mpls_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

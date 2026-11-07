@@ -330,6 +330,9 @@ All right, let's try this!  Let's grab total population and median household inc
 # Alternatively, load your NPS API key using:
 census_api_key <- Sys.getenv("CENSUS_API_KEY")
 
+# Or simply type in your key if your GitHub repo is not public
+# census_api_key <- "PLUG IN YOUR KEY HERE"
+
 url <- str_c("https://api.census.gov/data/2020/acs/acs5?get=NAME,B01003_001E,B19013_001E&for=tract:*&in=state:27&in=county:053", "&key=", census_api_key)
 acs5 <- GET(url)
 details <- content(acs5, "parsed")
@@ -388,8 +391,9 @@ hennepin_tidycensus <- tidycensus::get_acs(
     output = "wide",
     geometry = TRUE,
     county = "Hennepin",   # specify county in call
-    show_call = TRUE       # see resulting query
-)
+    show_call = TRUE,       # see resulting query
+    key = census_api_key
+    )
 hennepin_tidycensus
 ```
 

@@ -207,6 +207,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./11_apis.html">
  <span class="dropdown-text">Data Acquisition with APIs in R</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./12_maps.html">
+ <span class="dropdown-text">Creating informative maps</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -321,6 +325,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./11_apis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Acquisition with APIs in R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Creating informative maps</span></a>
   </div>
 </li>
     </ul>
@@ -496,16 +506,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>title_temp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{xml_nodeset (10)}
- [1] &lt;h3 class="thumbnail-teaser__heading"&gt;An extra year of secondary school  ...
- [2] &lt;h3 class="thumbnail-teaser__heading"&gt;A precision T-cell therapy stalls  ...
- [3] &lt;h3 class="thumbnail-teaser__heading"&gt;A blood-pressure drug may activate ...
- [4] &lt;h3 class="thumbnail-teaser__heading"&gt;Patients engage with epilepsy moni ...
- [5] &lt;h3 class="thumbnail-teaser__heading"&gt;Deep learning model using ECGs dur ...
- [6] &lt;h3 class="thumbnail-teaser__heading"&gt;NIH announces record number of gra ...
- [7] &lt;h3 class="thumbnail-teaser__heading"&gt;Human lung organoids with a built- ...
- [8] &lt;h3 class="thumbnail-teaser__heading"&gt;NIH joins effort to build SI-ready ...
- [9] &lt;h3 class="thumbnail-teaser__heading"&gt;NIH launches new PubMed tool to st ...
-[10] &lt;h3 class="thumbnail-teaser__heading"&gt;Modified HIV drug reverses vision  ...</code></pre>
+ [1] &lt;h3 class="thumbnail-teaser__heading"&gt;Two ‘forever chemicals’ associated ...
+ [2] &lt;h3 class="thumbnail-teaser__heading"&gt;Integrated health service delivery ...
+ [3] &lt;h3 class="thumbnail-teaser__heading"&gt;An extra year of secondary school  ...
+ [4] &lt;h3 class="thumbnail-teaser__heading"&gt;A precision T-cell therapy stalls  ...
+ [5] &lt;h3 class="thumbnail-teaser__heading"&gt;A blood-pressure drug may activate ...
+ [6] &lt;h3 class="thumbnail-teaser__heading"&gt;Patients engage with epilepsy moni ...
+ [7] &lt;h3 class="thumbnail-teaser__heading"&gt;Deep learning model using ECGs dur ...
+ [8] &lt;h3 class="thumbnail-teaser__heading"&gt;NIH announces record number of gra ...
+ [9] &lt;h3 class="thumbnail-teaser__heading"&gt;Human lung organoids with a built- ...
+[10] &lt;h3 class="thumbnail-teaser__heading"&gt;NIH joins effort to build SI-ready ...</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Extract content from nodes with html_text(), html_name(), </span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#    html_attrs(), html_children(), html_table(), etc.</span></span>
@@ -513,16 +523,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>title_vec <span class="ot">&lt;-</span> <span class="fu">html_text</span>(title_temp)</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>title_vec</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "An extra year of secondary school lowered dementia diagnoses later in life&nbsp;"                                                              
- [2] "A precision T-cell therapy stalls treatment-resistant cancers in clinical trial&nbsp;"                                                         
- [3] "A blood-pressure drug may activate health-promoting brown fat&nbsp;"                                                                           
- [4] "Patients engage with epilepsy monitor in real time, improving seizure detection&nbsp;"                                                         
- [5] "Deep learning model using ECGs during sleep studies can predict cardiovascular outcomes"                                                  
- [6] "NIH announces record number of grants to support early career investigators, launches new recruitment initiative for intramural research&nbsp;"
- [7] "Human lung organoids with a built-in immune system could transform respiratory disease research "                                         
- [8] "NIH joins effort to build SI-ready data for predictive models of human biology&nbsp;"                                                          
- [9] "NIH launches new PubMed tool to strengthen research replication and reproducibility&nbsp;"                                                     
-[10] "Modified HIV drug reverses vision loss and paralysis in multiple sclerosis model "                                                        </code></pre>
+<pre><code> [1] "Two ‘forever chemicals’ associated with higher risk of aggressive breast cancer in NIH analysis&nbsp;"                                                
+ [2] "Integrated health service delivery through medical mobile units helped to reduce deaths among individuals at risk for HIV who also inject drugs&nbsp;"
+ [3] "An extra year of secondary school lowered dementia diagnoses later in life&nbsp;"                                                                     
+ [4] "A precision T-cell therapy stalls treatment-resistant cancers in clinical trial&nbsp;"                                                                
+ [5] "A blood-pressure drug may activate health-promoting brown fat&nbsp;"                                                                                  
+ [6] "Patients engage with epilepsy monitor in real time, improving seizure detection&nbsp;"                                                                
+ [7] "Deep learning model using ECGs during sleep studies can predict cardiovascular outcomes"                                                         
+ [8] "NIH announces record number of grants to support early career investigators, launches new recruitment initiative for intramural research&nbsp;"       
+ [9] "Human lung organoids with a built-in immune system could transform respiratory disease research "                                                
+[10] "NIH joins effort to build SI-ready data for predictive models of human biology&nbsp;"                                                                 </code></pre>
 </div>
 </div>
 <p>You can also write this all together with a pipe:</p>
@@ -539,16 +549,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">".thumbnail-teaser__heading"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "An extra year of secondary school lowered dementia diagnoses later in life&nbsp;"                                                              
- [2] "A precision T-cell therapy stalls treatment-resistant cancers in clinical trial&nbsp;"                                                         
- [3] "A blood-pressure drug may activate health-promoting brown fat&nbsp;"                                                                           
- [4] "Patients engage with epilepsy monitor in real time, improving seizure detection&nbsp;"                                                         
- [5] "Deep learning model using ECGs during sleep studies can predict cardiovascular outcomes"                                                  
- [6] "NIH announces record number of grants to support early career investigators, launches new recruitment initiative for intramural research&nbsp;"
- [7] "Human lung organoids with a built-in immune system could transform respiratory disease research "                                         
- [8] "NIH joins effort to build SI-ready data for predictive models of human biology&nbsp;"                                                          
- [9] "NIH launches new PubMed tool to strengthen research replication and reproducibility&nbsp;"                                                     
-[10] "Modified HIV drug reverses vision loss and paralysis in multiple sclerosis model "                                                        </code></pre>
+<pre><code> [1] "Two ‘forever chemicals’ associated with higher risk of aggressive breast cancer in NIH analysis&nbsp;"                                                
+ [2] "Integrated health service delivery through medical mobile units helped to reduce deaths among individuals at risk for HIV who also inject drugs&nbsp;"
+ [3] "An extra year of secondary school lowered dementia diagnoses later in life&nbsp;"                                                                     
+ [4] "A precision T-cell therapy stalls treatment-resistant cancers in clinical trial&nbsp;"                                                                
+ [5] "A blood-pressure drug may activate health-promoting brown fat&nbsp;"                                                                                  
+ [6] "Patients engage with epilepsy monitor in real time, improving seizure detection&nbsp;"                                                                
+ [7] "Deep learning model using ECGs during sleep studies can predict cardiovascular outcomes"                                                         
+ [8] "NIH announces record number of grants to support early career investigators, launches new recruitment initiative for intramural research&nbsp;"       
+ [9] "Human lung organoids with a built-in immune system could transform respiratory disease research "                                                
+[10] "NIH joins effort to build SI-ready data for predictive models of human biology&nbsp;"                                                                 </code></pre>
 </div>
 </div>
 <p>And finally we wrap the 4 steps above into the <code>bow</code> and <code>scrape</code> functions from the <code>polite</code> package:</p>
@@ -562,16 +572,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>nih_title</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "An extra year of secondary school lowered dementia diagnoses later in life&nbsp;"                                                              
- [2] "A precision T-cell therapy stalls treatment-resistant cancers in clinical trial&nbsp;"                                                         
- [3] "A blood-pressure drug may activate health-promoting brown fat&nbsp;"                                                                           
- [4] "Patients engage with epilepsy monitor in real time, improving seizure detection&nbsp;"                                                         
- [5] "Deep learning model using ECGs during sleep studies can predict cardiovascular outcomes"                                                  
- [6] "NIH announces record number of grants to support early career investigators, launches new recruitment initiative for intramural research&nbsp;"
- [7] "Human lung organoids with a built-in immune system could transform respiratory disease research "                                         
- [8] "NIH joins effort to build SI-ready data for predictive models of human biology&nbsp;"                                                          
- [9] "NIH launches new PubMed tool to strengthen research replication and reproducibility&nbsp;"                                                     
-[10] "Modified HIV drug reverses vision loss and paralysis in multiple sclerosis model "                                                        </code></pre>
+<pre><code> [1] "Two ‘forever chemicals’ associated with higher risk of aggressive breast cancer in NIH analysis&nbsp;"                                                
+ [2] "Integrated health service delivery through medical mobile units helped to reduce deaths among individuals at risk for HIV who also inject drugs&nbsp;"
+ [3] "An extra year of secondary school lowered dementia diagnoses later in life&nbsp;"                                                                     
+ [4] "A precision T-cell therapy stalls treatment-resistant cancers in clinical trial&nbsp;"                                                                
+ [5] "A blood-pressure drug may activate health-promoting brown fat&nbsp;"                                                                                  
+ [6] "Patients engage with epilepsy monitor in real time, improving seizure detection&nbsp;"                                                                
+ [7] "Deep learning model using ECGs during sleep studies can predict cardiovascular outcomes"                                                         
+ [8] "NIH announces record number of grants to support early career investigators, launches new recruitment initiative for intramural research&nbsp;"       
+ [9] "Human lung organoids with a built-in immune system could transform respiratory disease research "                                                
+[10] "NIH joins effort to build SI-ready data for predictive models of human biology&nbsp;"                                                                 </code></pre>
 </div>
 </div>
 </section>

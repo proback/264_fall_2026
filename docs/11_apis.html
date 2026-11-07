@@ -207,6 +207,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./11_apis.html">
  <span class="dropdown-text">Data Acquisition with APIs in R</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./12_maps.html">
+ <span class="dropdown-text">Creating informative maps</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -321,6 +325,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./11_apis.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Data Acquisition with APIs in R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Creating informative maps</span></a>
   </div>
 </li>
     </ul>
@@ -471,7 +481,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>coco               <span class="co"># Status of 200 is good!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Response [http://www.omdbapi.com/?t=Coco&amp;y=2017&amp;apikey=afbf0254]
-  Date: 2026-11-03 05:58
+  Date: 2026-11-07 04:50
   Status: 200
   Content-Type: application/json; charset=utf-8
   Size: 1.07 kB</code></pre>
@@ -786,11 +796,14 @@ dbl (3): Acres, Latitude, Longitude
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively, load your NPS API key using:</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>census_api_key <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"CENSUS_API_KEY"</span>)</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">str_c</span>(<span class="st">"https://api.census.gov/data/2020/acs/acs5?get=NAME,B01003_001E,B19013_001E&amp;for=tract:*&amp;in=state:27&amp;in=county:053"</span>, <span class="st">"&amp;key="</span>, census_api_key)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>acs5 <span class="ot">&lt;-</span> <span class="fu">GET</span>(url)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>details <span class="ot">&lt;-</span> <span class="fu">content</span>(acs5, <span class="st">"parsed"</span>)</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># details </span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>details[[<span class="dv">1</span>]]  <span class="co"># variable names</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Or simply type in your key if your GitHub repo is not public</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># census_api_key &lt;- "PLUG IN YOUR KEY HERE"</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">str_c</span>(<span class="st">"https://api.census.gov/data/2020/acs/acs5?get=NAME,B01003_001E,B19013_001E&amp;for=tract:*&amp;in=state:27&amp;in=county:053"</span>, <span class="st">"&amp;key="</span>, census_api_key)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>acs5 <span class="ot">&lt;-</span> <span class="fu">GET</span>(url)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>details <span class="ot">&lt;-</span> <span class="fu">content</span>(acs5, <span class="st">"parsed"</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># details </span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>details[[<span class="dv">1</span>]]  <span class="co"># variable names</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "NAME"
@@ -900,8 +913,9 @@ dbl (3): Acres, Latitude, Longitude
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">output =</span> <span class="st">"wide"</span>,</span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">geometry =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">county =</span> <span class="st">"Hennepin"</span>,   <span class="co"># specify county in call</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">show_call =</span> <span class="cn">TRUE</span>       <span class="co"># see resulting query</span></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">show_call =</span> <span class="cn">TRUE</span>,       <span class="co"># see resulting query</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">key =</span> census_api_key</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Getting data from the 2017-2021 5-year ACS</code></pre>
 </div>
